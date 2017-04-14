@@ -1,0 +1,10 @@
+#!/bin/sh
+
+SSH_KEY=${SSH_KEY:-"~/.ssh/id_rsa"}
+
+# ssh agent, and key loading
+eval $(ssh-agent) >/dev/null 2>&1
+[ -f "$SSH_KEY" ] && ssh-add $SSK_KEY >/dev/null 2>&1
+
+# finished entrypoint
+$@
